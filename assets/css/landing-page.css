@@ -1,0 +1,57 @@
+#cover {
+    height: 100%;
+    position: absolute;
+}
+
+.form-container {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    top: -500px;
+    left: 600px;
+    z-index: 2;
+}
+
+.ctr {
+    position: absolute;
+    top: 50px;
+    left: 25%;
+    width: 50%;
+}
+
+
+/* .input-field label {
+    font-size: 1.8rem;
+} 
+.radius {
+    font-size: 1.8rem;
+}
+.miles {
+    font-size: 1rem;
+}
+.class {
+    font-size: 1rem;
+}
+.input.field option {
+    font-size: 1.8rem;
+}
+#city-input {
+    font-size: 1.8rem;
+}
+value {
+    font-size: 1.8rem;
+}
+select {
+    font-size: 1.8rem;
+}
+#submit-button {
+    font-size: 20px;
+     
+}
+.styled-select select {
+	font-size: 1.8rem;
+	-webkit-appearance: none;
+}
+.styled-select optgroup {
+    font-size: 1.8rem;
+} */

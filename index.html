@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Trail Details + Google Maps</title>
+
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Insert site header here -->
+
+    <!-- Thumbnail and trail name/description -->
+    <div class="row">
+      <div class="col s4">
+        <a href="https://placeholder.com">
+          <img src="http://via.placeholder.com/250x140">
+        </a>
+      </div>
+      <div class="col s8">
+
+        <!-- Need to dynamically write this information to the html based on user selection from previous screen (Pull from Firebase) -->
+        <h1 id="trail-name">Trail Name</h1>
+        <p>Trail description - Lorem ipsum dolor amet trust fund celiac pinterest church-key polaroid messenger bag. Banh mi
+          jianbing microdosing 8-bit, distillery sriracha raw denim brunch affogato lyft green juice poutine waistcoat echo
+          park seitan.</p>
+      </div>
+    </div>
+    <hr>
+
+    <!-- Checklist and weather widget -->
+    <div class="row">
+      <div class="col s6">
+        <h1>What to Bring</h1>
+        <!-- Dynamically insert checklist here using arrays based on weather and activity -->
+        <form action="#" id="checklist">
+          <!-- Sample item
+          <p>
+            <input type="checkbox" id="test1" class="checkbox" />
+            <label for="test1" class="checklist-item">Water</label>
+          </p> -->
+        </form>
+        <div class="input-field inline">
+          <input placeholder="Additional Items" id="add-item" type="text" class="validate">
+          <label for="add-item"></label>
+          <button class="btn-floating btn-small waves-effect waves-light green" id="submit-item" type="submit" name="action" style="inline-block">+</button>
+        </div>
+      </div>
+      <div class="col s6">
+        <h1 id="weather">Weather</h1>
+        <!-- Insert weather widget here -->
+        <a class="weatherwidget-io" href="https://forecast7.com/en/39d25n106d29/leadville/?unit=us" data-label_1="LEADVILLE, CO"
+          data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="original" data-baseColor="#3dc063" data-highColor="#ffe7e1"
+          data-lowColor="#dae9ff" data-sunColor="#ffd786" data-cloudColor="#e1f6ff" data-cloudFill="rgba(224, 243, 255, 0.45)">
+        WEATHER</a>
+        <script>
+          ! function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://weatherwidget.io/js/widget.min.js";
+              fjs.parentNode.insertBefore(js, fjs);
+            }
+          }(document, "script", "weatherwidget-io-js");
+        </script>
+      </div>
+    </div>
+    <hr>
+    <!-- Google Maps and directions -->
+    <div class="row">
+      <div class="col s12">
+        <h1 id="googlemap">Google Maps</h1>
+        <div id="map">
+          <!-- Insert Map here -->
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- JavaScript for Google -->
+  <script type="text/javascript" src="./assets/javascript/trail-info.js"></script>
+  <!-- <script type="text/javascript" src="./assets/javascript/google-firebase.js"></script> -->
+  <script type="text/javascript" src="./assets/javascript/googleapi.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNceJKZRhFdZSITn-8ZwmzDyJ8Co6iZhQ&callback=initMap" async
+    defer>
+    </script>
+</body>
+
+</html>
