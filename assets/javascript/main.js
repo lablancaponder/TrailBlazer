@@ -91,17 +91,19 @@ $(('#submit-button')).on('click', function (event){
     }
 });
 
-
+// Function to Display Trail Info
 function displayTrailInfo(latitude, longitude, radius) {
 
     // Empties Trail Info Container
     $('#trail-info').empty();
 
+    // Hiking Project API Key
     var apiKey = '200209309-2a8d10ade11cd96cedf39716cfa65127';
 
     // Creates URL with Search Term for Trail API
     var trailURL ='https://www.hikingproject.com/data/get-trails?lat=' + latitude + '&lon=' + longitude + '&sort=distance&maxResults=12&maxDistance=' + radius + '&key=' + apiKey;
 
+    // AJAX Call from API
     $.ajax({
         url: trailURL,
         method: "GET",
@@ -109,36 +111,42 @@ function displayTrailInfo(latitude, longitude, radius) {
         }).success(function(response) {
             console.log(response);
 
+            // Creates First Row of Trails
             for (var i=0; i<4;i++) {
             $('.row-1').append(
                 '<div class="col s12 m3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
-                + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="#">More Trail Info</a></div</div></div>'
+                + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
+                )
+
+                // Adds Data Attributes to HTML
+                $('.trail').data('Name', response.trails[i].name);
+                $('.trail').data('Trail Latitude', response.trails[i].latitude);
+                $('.trail').data('Trail Longitude', response.trails[i].longitude);
+            }
+
+            // Creates Second Row of Trails
+            for (var i=4; i<8;i++) {
+                $('.row-2').append(
+                '<div class="col s12 m3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
+                + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
                 $('.trail').data('Name', response.trails[i].name);
                 $('.trail').data('Trail Latitude', response.trails[i].latitude);
                 $('.trail').data('Trail Longitude', response.trails[i].longitude);
             }
-            for (var i=4; i<8;i++) {
-                $('.row-2').append(
-                    '<div class="col s12 m3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
-                    + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="#">More Trail Info</a></div</div></div>'
-                    )
 
-                    $('.trail').data('Name', response.trails[i].name);
-                    $('.trail').data('Trail Latitude', response.trails[i].latitude);
-                    $('.trail').data('Trail Longitude', response.trails[i].longitude);
-                }
-                for (var i=8; i<12;i++) {
-                    $('.row-3').append(
-                        '<div class="col s12 m3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
-                        + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="#">More Trail Info</a></div</div></div>'
-                        )
+            //Creates Third Row of Trails 
+            for (var i=8; i<12;i++) {
+                $('.row-3').append(
+                '<div class="col s12 m3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
+                + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
+                )
 
-                        $('.trail').data('Name', response.trails[i].name);
-                        $('.trail').data('Trail Latitude', response.trails[i].latitude);
-                        $('.trail').data('Trail Longitude', response.trails[i].longitude);
-                    }
+                $('.trail').data('Name', response.trails[i].name);
+                $('.trail').data('Trail Latitude', response.trails[i].latitude);
+                $('.trail').data('Trail Longitude', response.trails[i].longitude);
+            }
 
         }).error(function(error){
             console.log('Error', error);

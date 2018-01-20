@@ -1,18 +1,17 @@
 #cover {
     height: 70%;
-    position: relative;
 }
 
 .form-container {
-    position: absolute;
-    display: inline-block;
-    margin: 0 auto;
-    top: 400px;
-    left: 600px;
-    z-index: 2;
+    top: -500px;
+    left:25%;
+    width: 50%;
+    height: 500px;
+    position: relative;
+    min-width: 250px;
 }
 
- 
+
 .ctr {
     position: absolute;
     top: 50px;
