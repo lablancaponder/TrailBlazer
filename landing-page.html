@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,7 @@
   <title>TrailBlazer</title>
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
-
+    
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
@@ -21,7 +20,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/materialize.css">
-  <link rel="stylesheet" href="assets/css/materialize.min.css">
 
   <!-- Slider CSS -->
   <link rel="stylesheet" type="text/css" href="assets/css/nouislider.css">
@@ -31,15 +29,14 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" type="text/css" href="assets/css/landing-page.css">
-
+  
 </head>
-
 <body>
-
-  <!-- Cover Image -->
-  <div id="cover">
-    <img class="responsive-img" src="assets/images/cover-image.jpg" style="width: 100vw; height: 80%">
-
+  
+    <!-- Cover Image -->
+    <div id="cover">
+      <img class="responsive-img" src="assets/images/cover-image.jpg">
+  
 
     <!-- Logo Image -->
     <div class="logo-image">
@@ -49,133 +46,131 @@
 
     <!-- User Input Form -->
     <div class="form-container">
-      <div class="row">
-        <div class="col m12">
-          <div class="card" style="margin: 0 auto; width: 30vw; background:rgba(255,255,255, 0.85); border-radius: 10px">
-            <div class="card-content">
-
-              <!-- City Input -->
-              <div class="row">
-                <div class="input-field col s12 m12 l12">
-                  <input id="city-input" type="text" class="validate">
-                  <label for="city">City</label>
-                </div>
-              </div>
-
-              <!-- State Input -->
-              <div class="row">
-                <div class="input-field col s12" id='state-input'>
-                  <select>
-                    <option id="state-input" value="state" disabled selected>State</option>
-                    <option value="alabama">Alabama</option>
-                    <option value="alaska">Alaska</option>
-                    <option value="arizona">Arizona</option>
-                    <option value="arkansas">Arkansas</option>
-                    <option value="california">California</option>
-                    <option value="colorado">Colorado</option>
-                    <option value="connecticut">Connecticut</option>
-                    <option value="delaware">Delaware</option>
-                    <option value="florida">Florida</option>
-                    <option value="georgia">Georgia</option>
-                    <option value="hawaii">Hawaii</option>
-                    <option value="idaho">Idaho</option>
-                    <option value="illinois">Illinois</option>
-                    <option value="indiana">Indiana</option>
-                    <option value="iowa">Iowa</option>
-                    <option value="kansas">Kansas</option>
-                    <option value="kentucky">Kentucky</option>
-                    <option value="louisiana">Louisiana</option>
-                    <option value="maine">Maine</option>
-                    <option value="maryland">Maryland</option>
-                    <option value="massachusetts">Massachusetts</option>
-                    <option value="michigan">Michigan</option>
-                    <option value="minnesota">Minnesota</option>
-                    <option value="mississippi">Mississippi</option>
-                    <option value="missouri">Missouri</option>
-                    <option value="montana">Montana</option>
-                    <option value="nebraska">Nebraska</option>
-                    <option value="nevada">Nevada</option>
-                    <option value="newhampshire">New Hampshire</option>
-                    <option value="newjersey">New Jersey</option>
-                    <option value="newmexico">New Mexico</option>
-                    <option value="newyork">New York</option>
-                    <option value="northcarolina">North Carolina</option>
-                    <option value="northdakota">North Dakota</option>
-                    <option value="ohio">Ohio</option>
-                    <option value="oklahoma">Oklahoma</option>
-                    <option value="oregon">Oregon</option>
-                    <option value="pennsylvania">Pennsylvania</option>
-                    <option value="rhodeisland">Rhode Island</option>
-                    <option value="southcarolina">South Carolina</option>
-                    <option value="southdakota">South Dakota</option>
-                    <option value="tennessee">Tennessee</option>
-                    <option value="texas">Texas</option>
-                    <option value="utah">Utah</option>
-                    <option value="vermont">Vermont</option>
-                    <option value="virginia">Virginia</option>
-                    <option value="washington">Washington</option>
-                    <option value="westvirginia">West Virginia</option>
-                    <option value="wisconsin">Wisconsin</option>
-                    <option value="wyoming">Wyoming</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Search Radius -->
-              <div class="row">
-                <label for="radius-input" class="radius">Search Radius</label>
-                <form action="#">
-                  <p class="range-field">
-                    <input type="range" id="radius-input" min="0" max="150" />
-                  </p>
-                </form>
-                <label for="miles" class="miles">Miles:
-                  <span id="miles-value"></span>
-                </label>
-              </div>
-
-              <!-- Submit Button -->
-              <div id='submit-button'>
-                <a class="btn waves-effect lime darken-4" type="submit" id="submit-button">Submit
-                  <i class="material-icons right">send</i>
-                </a>
-              </div>
-
-
+        <div class="row">
+            <div class="col m12">
+            <div class="card" style="margin: 0 auto; width: 30vw; background:rgba(255,255,255, 0.85); border-radius: 10px">
+                <div class="card-content">
+                   
+        <!-- City Input -->
+        <div class="row"> 
+            <div class="input-field col s12 m12 l12">
+            <input id="city-input" type="text" class="validate">
+            <label for="city">City</label>                             
             </div>
-          </div>
         </div>
-      </div>
+
+        <!-- State Input -->
+        <div class="row">
+            <div class="input-field col s12">
+            <select>
+                <option id="state-input" value="state" disabled selected>State</option>
+                <option value="alabama">Alabama</option>
+                <option value="alaska">Alaska</option>
+                <option value="arizona">Arizona</option>
+                <option value="arkansas">Arkansas</option>
+                <option value="california">California</option>
+                <option value="colorado">Colorado</option>
+                <option value="connecticut">Connecticut</option>
+                <option value="delaware">Delaware</option>
+                <option value="florida">Florida</option>
+                <option value="georgia">Georgia</option>
+                <option value="hawaii">Hawaii</option>
+                <option value="idaho">Idaho</option>
+                <option value="illinois">Illinois</option>
+                <option value="indiana">Indiana</option>
+                <option value="iowa">Iowa</option>
+                <option value="kansas">Kansas</option>
+                <option value="kentucky">Kentucky</option>
+                <option value="louisiana">Louisiana</option>
+                <option value="maine">Maine</option>
+                <option value="maryland">Maryland</option>
+                <option value="massachusetts">Massachusetts</option>
+                <option value="michigan">Michigan</option>
+                <option value="minnesota">Minnesota</option>
+                <option value="mississippi">Mississippi</option>
+                <option value="missouri">Missouri</option>
+                <option value="montana">Montana</option>
+                <option value="nebraska">Nebraska</option>
+                <option value="nevada">Nevada</option>
+                <option value="newhampshire">New Hampshire</option>
+                <option value="newjersey">New Jersey</option>
+                <option value="newmexico">New Mexico</option>
+                <option value="newyork">New York</option>
+                <option value="northcarolina">North Carolina</option>
+                <option value="northdakota">North Dakota</option>
+                <option value="ohio">Ohio</option>
+                <option value="oklahoma">Oklahoma</option>
+                <option value="oregon">Oregon</option>
+                <option value="pennsylvania">Pennsylvania</option>
+                <option value="rhodeisland">Rhode Island</option>
+                <option value="southcarolina">South Carolina</option>
+                <option value="southdakota">South Dakota</option>
+                <option value="tennessee">Tennessee</option>
+                <option value="texas">Texas</option>
+                <option value="utah">Utah</option>
+                <option value="vermont">Vermont</option>
+                <option value="virginia">Virginia</option>
+                <option value="washington">Washington</option>
+                <option value="westvirginia">West Virginia</option>
+                <option value="wisconsin">Wisconsin</option>
+                <option value="wyoming">Wyoming</option>   
+            </select>                                
+            </div>
+        </div>
+
+        <!-- Search Radius -->
+        <div class="row">                      
+            <label for="radius-input" class="radius">Search Radius</label>
+            <form action="#">             
+            <p class="range-field">
+            <input type="range" id="radius-input" min="0" max="150" />
+            </p>
+            </form>
+            <label for="miles" class="miles">Miles: <span id="miles-value"></span></label>
+        </div>
+
+        <!-- Submit Button -->
+        <div id = 'submit-button'>
+            <a class="btn waves-effect lime darken-4" type="submit" id="submit-button">Search Trails<i class="material-icons right">send</i></a>
+        </div>        
+                      
+
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+  
+    <!-- Trail API -->
+    <div id = 'trail-container'>
+        <div id = 'trail-info'></div>
+        <div class='row row-1'></div>
+        <div class='row row-2'></div>
+        <div class='row row-3'></div>
+    </div>
 
-  <!-- Trail API -->
-  <div id='trail-container'>
-    <div id='trail-info'></div>
-  </div>
+    <!-- Sticky Footer -->
+    <div class="card-action center-align">
+        © 2018 Four Happy Campers
+    </div>
 
-  <!-- Sticky Footer -->
-  <div class="card-action center-align">
-    © 2018 Four Happy Campers
-  </div>
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-  <!-- Materialize JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- Custom Javascript -->
+    <script type="text/javascript" src="assets/javascript/main.js"></script>
 
-  <!-- Custom Javascript -->
-  <script type="text/javascript" src="assets/javascript/main.js"></script>
+    <!-- Date Picker Javascript -->
+    <script type="text/javascript" src="assets/javascript/picker.js"></script>
+    <script type="text/javascript" src="assets/javascript/picker.date.js"></script>
+    
+    <!-- Slider Javascript -->
+    <script type="text/javascript" src="assets/javascript/nouislider.js"></script>
 
-  <!-- Date Picker Javascript -->
-  <script type="text/javascript" src="assets/javascript/picker.js"></script>
-  <script type="text/javascript" src="assets/javascript/picker.date.js"></script>
-
-  <!-- Slider Javascript -->
-  <script type="text/javascript" src="assets/javascript/nouislider.js"></script>
-
-  <!-- Moment.js -->
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 
 </body>
-
 </html>
