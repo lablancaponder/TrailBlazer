@@ -10,6 +10,8 @@
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
 
@@ -17,90 +19,158 @@
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/second.css">
 </head>
 
 <body>
-  <div class="container">
+  <div id="cover"></div>
 
-    <!-- Insert site header here -->
+  <div class="col m12">
+    <div class="card" style="margin: 0 auto; width: 50vw; background:rgba(255,255,255, 0.80); border-radius: 10px">
 
-    <!-- Thumbnail and trail name/description -->
-    <div class="row">
-      <div class="col s4">
-        <a href="https://placeholder.com">
-          <img src="http://via.placeholder.com/250x140">
-        </a>
-      </div>
-      <div class="col s8">
+      <div class="card-content">
 
-        <!-- Need to dynamically write this information to the html based on user selection from previous screen (Pull from Firebase) -->
-        <h1 id="trail-name">Trail Name</h1>
-        <p>Trail description - Lorem ipsum dolor amet trust fund celiac pinterest church-key polaroid messenger bag. Banh mi
-          jianbing microdosing 8-bit, distillery sriracha raw denim brunch affogato lyft green juice poutine waistcoat echo
-          park seitan.</p>
-      </div>
-    </div>
-    <hr>
 
-    <!-- Checklist and weather widget -->
-    <div class="row">
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="assets/images/camping.jpg">
+          </div>
+          <div class="card-content">
+            <span h1 id="trail-name" class="card-title activator grey-text text-darken-4">Trail Name
+              <i class="medium material-icons right">view_headline</i>
+            </span>
+
+          </div>
+
+          <div class="card-reveal">
+            <span h1 id="trail-name" class="card-title grey-text text-darken-4">Trail Name
+              <i class="material-icons right">close</i>
+            </span>
+
+            <p>Trail description - Lorem ipsum dolor amet trust fund celiac pinterest church-key polaroid messenger bag. Banh
+              mi jianbing microdosing 8-bit, distillery sriracha raw denim brunch affogato lyft green juice poutine waistcoat
+              echo park seitan.</p>
+          </div>
+        </div>
+
+
+
+
+        <hr>
+
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-content">
+
+                <h1>What to Bring</h1>
+                <!-- Dynamically insert checklist here using arrays based on weather and activity -->
+                <form action="#" id="checklist">
+                  <p>
+                    <input type="checkbox" id="test1" class="checkbox" />
+                    <label for="test1" class="checklist-item">Water</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" id="test2" class="checkbox" />
+                    <label for="test2" class="checklist-item">Backpack</label>
+                  </p>
+                  <p>
+                    <input type="checkbox" id="test3" class="checkbox" />
+                    <label for="test3" class="checklist-item">Rain jacket</label>
+                  </p>
+                </form>
+                <div class="input-field inline">
+                  <input placeholder="Additional Items" id="add-item" type="text" class="validate">
+                  <label for="add-item"></label>
+                  <button class="btn-floating btn-large waves-effect" id="submit-item" type="submit" name="action" style="inline-block">+</button>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checklist and weather widget -->
+          <!-- <div class="row">
       <div class="col s6">
-        <h1>What to Bring</h1>
-        <!-- Dynamically insert checklist here using arrays based on weather and activity -->
-        <form action="#" id="checklist">
-          <!-- Sample item
+        <h1>What to Bring</h1> -->
+          <!-- Dynamically insert checklist here using arrays based on weather and activity -->
+          <!-- <form action="#" id="checklist">
           <p>
             <input type="checkbox" id="test1" class="checkbox" />
             <label for="test1" class="checklist-item">Water</label>
-          </p> -->
+          </p>
+          <p>
+            <input type="checkbox" id="test2" class="checkbox" />
+            <label for="test2" class="checklist-item">Backpack</label>
+          </p>
+          <p>
+            <input type="checkbox" id="test3" class="checkbox" />
+            <label for="test3" class="checklist-item">Rain jacket</label>
+          </p>
         </form>
         <div class="input-field inline">
           <input placeholder="Additional Items" id="add-item" type="text" class="validate">
           <label for="add-item"></label>
-          <button class="btn-floating btn-small waves-effect waves-light green" id="submit-item" type="submit" name="action" style="inline-block">+</button>
+          <button class="btn-floating btn-large waves-effect waves-light green" id="submit-item" type="submit" name="action" style="inline-block">+</button>
         </div>
-      </div>
-      <div class="col s6">
-        <h1 id="weather">Weather</h1>
-        <!-- Insert weather widget here -->
-        <a class="weatherwidget-io" href="https://forecast7.com/en/39d25n106d29/leadville/?unit=us" data-label_1="LEADVILLE, CO"
-          data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="original" data-baseColor="#3dc063" data-highColor="#ffe7e1"
-          data-lowColor="#dae9ff" data-sunColor="#ffd786" data-cloudColor="#e1f6ff" data-cloudFill="rgba(224, 243, 255, 0.45)">
-        WEATHER</a>
-        <script>
-          ! function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (!d.getElementById(id)) {
-              js = d.createElement(s);
-              js.id = id;
-              js.src = "https://weatherwidget.io/js/widget.min.js";
-              fjs.parentNode.insertBefore(js, fjs);
-            }
-          }(document, "script", "weatherwidget-io-js");
-        </script>
-      </div>
-    </div>
-    <hr>
-    <!-- Google Maps and directions -->
-    <div class="row">
-      <div class="col s12">
-        <h1 id="googlemap">Google Maps</h1>
-        <div id="map">
-          <!-- Insert Map here -->
+      </div> -->
+          <div class="col s6">
+            <h1 id="weather">Weather</h1>
+            <!-- Insert weather widget here -->
+            <a class="weatherwidget-io" href="https://forecast7.com/en/39d25n106d29/leadville/?unit=us" data-label_1="LEADVILLE, CO"
+              data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="original" data-baseColor="#3dc063" data-highColor="#ffe7e1"
+              data-lowColor="#dae9ff" data-sunColor="#ffd786" data-cloudColor="#e1f6ff" data-cloudFill="rgba(224, 243, 255, 0.45)">LEADVILLE, CO WEATHER</a>
+            <script>
+              ! function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = "https://weatherwidget.io/js/widget.min.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }
+              }(document, "script", "weatherwidget-io-js");
+            </script>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  </div>
 
-  <!-- JavaScript for Google -->
-  <script type="text/javascript" src="./assets/javascript/trail-info.js"></script>
-  <!-- <script type="text/javascript" src="./assets/javascript/google-firebase.js"></script> -->
-  <script type="text/javascript" src="./assets/javascript/googleapi.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNceJKZRhFdZSITn-8ZwmzDyJ8Co6iZhQ&callback=initMap" async
-    defer>
-    </script>
+        <div class="card">
+          <div class="card-content">
+            <h1 id="googlemap">Map</h1>
+            <!-- </div> -->
+            <div id="map">
+              <!-- Insert Map here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript for Google -->
+    <script type="text/javascript" src="./assets/javascript/trail-info.js"></script>
+    <script type="text/javascript" src="./assets/javascript/googleapi.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNceJKZRhFdZSITn-8ZwmzDyJ8Co6iZhQ&callback=initMap" async
+      defer>
+      </script>
+
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <!-- Custom Javascript -->
+    <script type="text/javascript" src="assets/javascript/main.js"></script>
+
+    <!-- Date Picker Javascript -->
+    <script type="text/javascript" src="assets/javascript/picker.js"></script>
+    <script type="text/javascript" src="assets/javascript/picker.data.js"></script>
+
+    <!-- Slider Javascript -->
+    <script type="text/javascript" src="assets/javascript/nouislide.js"></script>
+
+    <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </body>
 
 </html>
