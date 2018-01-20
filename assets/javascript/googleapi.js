@@ -1,3 +1,8 @@
+  // database.ref("/trails/").on("child_added", function(snapshot) {
+  //   console.log(snapshot);
+
+
+
 var infoWindow;
 
 // Geolocation of where you are located with an infoWindow
@@ -8,6 +13,7 @@ function initMap() {
     center: myLatLng
   });
   infoWindow = new google.maps.InfoWindow();
+
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -127,4 +133,3 @@ function initMap() {
     animation: google.maps.Animation.DROP
   });
 }
-

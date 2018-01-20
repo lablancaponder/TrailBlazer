@@ -1,0 +1,75 @@
+h1 {
+    font-size: 20px;
+    color: #1a66a5;
+    /* text-shadow: 3px grey; */
+    text-transform: uppercase;
+    /* text-decoration: underline black; */
+}
+
+#weather {
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    top: -600px;
+    left: 250px;
+    z-index: 2;
+}
+
+.overlay {
+    background-color: #051a32;
+}
+
+
+/* .row {
+  border-bottom: 1px solid black;
+} */
+
+#googlemap {
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    /* padding: 0px;
+  float: none; */
+    border-radius: 10px;
+    position: absolute,
+}
+
+#panel {
+    position: relative;
+    overflow: scroll;
+    width: 100%;
+    height: 15%;
+    float: left;
+    z-index: 3;
+    background: white;
+    padding: 15px;
+    /* border: 1px solid red; */
+    opacity: 0.8;
+}
+
+#cover {
+    background-image: url("../images/cover-image-bw.jpg"), linear-gradient(rgba(5, 26, 50, 0.90), rgba(250, 250, 250, 0.95));
+    background-blend-mode: overlay;
+    /* background-color: #051a32; */
+    width: 100vw;
+    height: 75%;
+    position: absolute;
+}
+
+
+/* #cover:before {
+  content: "";
+  position: relative;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  background: rgb(5, 26, 50, 0.90);
+}
+ */
