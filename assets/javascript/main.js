@@ -13,20 +13,11 @@ firebase.initializeApp(config);
 // Create a variable to reference the database.
 var database = firebase.database();
 
-    // Javascript for Date Picker Form Input 
-    $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 1, // Creates a dropdown of 15 years to control year,
-        today: 'Today',
-        clear: 'Clear',
-        close: 'Ok',
-        format: 'mm/dd/yyyy',
-        closeOnSelect: false // Close upon selecting a date,
-      });
 
 // Document Loads Before Code Runs
 
 $(document).ready(function() {
+    $('select').material_select('destroy');
     $('select').material_select(); 
 
     // Updates Miles in HTML When Range is Clicked
@@ -51,7 +42,7 @@ $(('#submit-button')).on('click', function (event){
     var city = $("#city-input").val().trim();
     console.log('City: ', city);
     var state = $('#state-input').val();
-    console.log('State: ')
+    console.log('State: ', state)
     var radius = $("#radius-input").val();
     console.log('Search Radius: ', radius)
    
@@ -96,6 +87,9 @@ function displayTrailInfo(latitude, longitude, radius) {
 
     // Empties Trail Info Container
     $('#trail-info').empty();
+    $('#trail-info').append('<div class="row row-1"</div>');
+    $('#trail-info').append('<div class="row row-2"</div>')
+    $('#trail-info').append('<div class="row row-3"</div>')
 
     // Hiking Project API Key
     var apiKey = '200209309-2a8d10ade11cd96cedf39716cfa65127';
@@ -111,11 +105,16 @@ function displayTrailInfo(latitude, longitude, radius) {
         }).success(function(response) {
             console.log(response);
 
+            
+
             // Creates First Row of Trails
             for (var i=0; i<4;i++) {
+            if (response.trails[i].imgSmallMed === "") {
+                response.trails[i].imgSmallMed = "assets/images/camping.jpg"
+            }
             $('.row-1').append(
-                '<div class="col s12 m3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
-                + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
+                '<div class="col s12 m6 l3 xl3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
+                + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title name">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
                 // Adds Data Attributes to HTML
@@ -127,7 +126,7 @@ function displayTrailInfo(latitude, longitude, radius) {
             // Creates Second Row of Trails
             for (var i=4; i<8;i++) {
                 $('.row-2').append(
-                '<div class="col s12 m3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
+                '<div class="col s12 m6 l3 xl3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
                 + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
@@ -139,7 +138,7 @@ function displayTrailInfo(latitude, longitude, radius) {
             //Creates Third Row of Trails 
             for (var i=8; i<12;i++) {
                 $('.row-3').append(
-                '<div class="col s12 m3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
+                '<div class="col s12 m6 l3 lx3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
                 + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
