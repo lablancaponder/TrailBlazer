@@ -42,54 +42,62 @@ $(document).ready(function() {
     storageBucket: "trailblazer-project.appspot.com",
     messagingSenderId: "615321105967"
   };
-  firebase.initializeApp(config);
 
-  var dataRef = firebase.database();
+// OLD FIREBASE CODE
+  // firebase.initializeApp(config);
+  //
+  // var dataRef = firebase.database();
+  //
+  // // Initial Values
+  // var city = "";
+  // var trailName = "";
+  // var trailDescription = "";
+  // var trailThumbnailUrl = "";
+  //
+  // // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
+  // dataRef.ref("/trails/").on(
+  //   "value",
+  //   function(childSnapshot) {
+  //     // Log everything that's coming out of snapshot
+  //     console.log(childSnapshot.val().trailName);
+  //
+  //     // Write trail name to <h1> tag
+  //     $("#trail-name").text(childSnapshot.val().trailName);
+  //     $(".weatherwidget-io").attr(
+  //       "href",
+  //       "https://forecast7.com/en/39d25n106d29/" +
+  //         childSnapshot.val().trailCity +
+  //         "/?unit=us"
+  //     );
+  //     $(".weatherwidget-io").attr(
+  //       "data-label_1",
+  //       childSnapshot.val().trailCity + ", " + childSnapshot.val().trailState
+  //     );
+  //     $("#cityState").text(
+  //       childSnapshot.val().trailCity + ", " + childSnapshot.val().trailState
+  //     );
+  //     $(".locationName").text(
+  //       childSnapshot.val().trailCity + ", " + childSnapshot.val().trailState
+  //     );
+  //     $(".weatherInfo").attr(
+  //       "href",
+  //       "//forecast7.com/en/39d25n106d29/" +
+  //         childSnapshot.val().trailCity +
+  //         "/?unit=us"
+  //     );
+  //
+  //     // Handle the errors
+  //   },
+  //   function(errorObject) {
+  //     console.log("Errors handled: " + errorObject.code);
+  //   }
+  // );
+// END OLD FIREBASE CODE
 
-  // Initial Values
-  var city = "";
-  var trailName = "";
-  var trailDescription = "";
-  var trailThumbnailUrl = "";
-
-  // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
-  dataRef.ref("/trails/").on(
-    "value",
-    function(childSnapshot) {
-      // Log everything that's coming out of snapshot
-      console.log(childSnapshot.val().trailName);
-
-      // Write trail name to <h1> tag
-      $("#trail-name").text(childSnapshot.val().trailName);
-      $(".weatherwidget-io").attr(
-        "href",
-        "https://forecast7.com/en/39d25n106d29/" +
-          childSnapshot.val().trailCity +
-          "/?unit=us"
-      );
-      $(".weatherwidget-io").attr(
-        "data-label_1",
-        childSnapshot.val().trailCity + ", " + childSnapshot.val().trailState
-      );
-      $("#cityState").text(
-        childSnapshot.val().trailCity + ", " + childSnapshot.val().trailState
-      );
-      $(".locationName").text(
-        childSnapshot.val().trailCity + ", " + childSnapshot.val().trailState
-      );
-      $(".weatherInfo").attr(
-        "href",
-        "//forecast7.com/en/39d25n106d29/" +
-          childSnapshot.val().trailCity +
-          "/?unit=us"
-      );
-
-      // Handle the errors
-    },
-    function(errorObject) {
-      console.log("Errors handled: " + errorObject.code);
-    }
-  );
+  // AJAX call to get and write trail info upon clicking link from landing page
+  $(".card-action").on("click", function(event) {
+    console.log("My Test");
+  });
 
   // Check weather and activity (from Firebase) to display appropriate checklist arrays
 

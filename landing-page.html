@@ -7,7 +7,7 @@
   <title>TrailBlazer</title>
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
-    
+
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
@@ -27,14 +27,14 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" type="text/css" href="assets/css/landing-page.css">
-  
+
 </head>
 <body>
-  
+
     <!-- Cover Image -->
     <div id="cover">
       <img class="responsive-img" src="assets/images/cover-image.jpg">
-  
+
 
     <!-- Logo Image -->
     <div class="logo-image">
@@ -48,12 +48,12 @@
             <div class="col m12">
             <div class="card" style="margin: 0 auto; width: 30vw; background:rgba(255,255,255, 0.85); border-radius: 10px">
                 <div class="card-content">
-                   
+
         <!-- City Input -->
-        <div class="row"> 
+        <div class="row">
             <div class="input-field col s12 m12 l12">
             <input id="city-input" type="text" class="validate">
-            <label for="city">City</label>                             
+            <label for="city">City</label>
             </div>
         </div>
 
@@ -111,15 +111,15 @@
                 <option value="washington">Washington</option>
                 <option value="westvirginia">West Virginia</option>
                 <option value="wisconsin">Wisconsin</option>
-                <option value="wyoming">Wyoming</option>   
-            </select>                                
+                <option value="wyoming">Wyoming</option>
+            </select>
             </div>
         </div>
 
         <!-- Search Radius -->
-        <div class="row">                      
+        <div class="row">
             <label for="radius-input" class="radius">Search Radius</label>
-            <form action="#">             
+            <form action="#">
             <p class="range-field">
             <input type="range" id="radius-input" min="0" max="150" />
             </p>
@@ -130,8 +130,8 @@
         <!-- Submit Button -->
         <div id = 'submit-button'>
             <a class="btn waves-effect lime darken-4" type="submit" id="submit-button">Search Trails<i class="material-icons right">send</i></a>
-        </div>        
-                      
+        </div>
+
 
                 </div>
             </div>
@@ -139,7 +139,7 @@
         </div>
     </div>
 </div>
-  
+
     <!-- Trail API -->
     <div id = 'trail-container'>
         <div id = 'trail-info'></div>
@@ -158,7 +158,10 @@
 
     <!-- Custom Javascript -->
     <script type="text/javascript" src="assets/javascript/main.js"></script>
-    
+
+    <!-- Custom Javascript for 2nd page -->
+    <script type="text/javascript" src="./assets/javascript/trail-info.js"></script>
+
     <!-- Slider Javascript -->
     <script type="text/javascript" src="assets/javascript/nouislider.js"></script>
 
