@@ -95,7 +95,7 @@ $(document).ready(function() {
 // END OLD FIREBASE CODE
 
   // AJAX call to get and write trail info upon clicking link from landing page
-  $(".card-action").on("click", function(event) {
+  $(".card trail").on("click", ".card-action", function(event) {
     console.log("My Test");
   });
 
