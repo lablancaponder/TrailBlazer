@@ -98,11 +98,11 @@ $(document).ready(function() {
 
 
   // AJAX call to get and write trail info upon clicking link from landing page
-  $(document).on('click', '.card-action', function(event){
+  $(document).on("click", ".card-action", function(event){
     // Get lat and lon data from selected trail data Attributes
-    var trailLatitude = $(".trail").attr("data-latitude");
+    var trailLatitude = $(this).attr("data-latitude");
     console.log(trailLatitude);
-    var trailLongitude = $(".trail").attr("data-longitude");
+    var trailLongitude = $(this).attr("data-longitude");
     console.log(trailLongitude);
 
     // Hiking Project API Key
