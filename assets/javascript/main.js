@@ -18,7 +18,7 @@ var database = firebase.database();
 
 $(document).ready(function() {
     $('select').material_select('destroy');
-    $('select').material_select(); 
+    $('select').material_select();
 
     // Updates Miles in HTML When Range is Clicked
     $('.range-field').on('click', function(event){
@@ -45,11 +45,11 @@ $(('#submit-button')).on('click', function (event){
     console.log('State: ', state)
     var radius = $("#radius-input").val();
     console.log('Search Radius: ', radius)
-   
+
     // Prevents Submit If Fields Are Empty
     if (city==="" || state==="" || radius ==="") {
         alert('Error! Please Enter All Info.')
-    
+
     // Otherwise
     } else {
         // Grab Latitude and Longitude from API
@@ -58,7 +58,7 @@ $(('#submit-button')).on('click', function (event){
         $.ajax({
             url: googleURL,
             method: "GET",
-    
+
             // When AJAX Call is "Done"
             }).done(function(response) {
                 console.log(response);
@@ -105,7 +105,7 @@ function displayTrailInfo(latitude, longitude, radius) {
         }).success(function(response) {
             console.log(response);
 
-            
+
 
             // Creates First Row of Trails
             for (var i=0; i<4;i++) {
@@ -135,7 +135,7 @@ function displayTrailInfo(latitude, longitude, radius) {
                 $('.trail').data('Trail Longitude', response.trails[i].longitude);
             }
 
-            //Creates Third Row of Trails 
+            //Creates Third Row of Trails
             for (var i=8; i<12;i++) {
                 $('.row-3').append(
                 '<div class="col s12 m6 l3 lx3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude

@@ -94,9 +94,35 @@ $(document).ready(function() {
   // );
 // END OLD FIREBASE CODE
 
+
+
+
   // AJAX call to get and write trail info upon clicking link from landing page
-  $(document).on('click', '.trail', function(event) {
-    console.log("My Test");
+  $(document).on('click', '.card-action', function(event){
+    // Get lat and lon data from selected trail data Attributes
+    var trailLatitude = $(".trail").attr("data-latitude");
+    console.log(trailLatitude);
+    var trailLongitude = $(".trail").attr("data-longitude");
+    console.log(trailLongitude);
+
+    // Hiking Project API Key
+    var apiKey = '200209309-2a8d10ade11cd96cedf39716cfa65127';
+
+    // Creates URL with Search Term for Trail API
+    var trailURL ='https://www.hikingproject.com/data/get-trails?lat=' + trailLatitude + '&lon=' + trailLongitude + '&sort=distance&maxResults=1&key=' + apiKey;
+
+    // AJAX Call from API
+    $.ajax({
+      url: trailURL,
+      method: "GET",
+      // When AJAX Call is "Done"
+    }).success(function(response) {
+      console.log(response);
+
+      var trailNameTitle = response.trails[0].name;
+      $("#trail-name-cover").text(trailNameTitle);
+      console.log(trailNameTitle);
+    });
   });
 
   // Check weather and activity (from Firebase) to display appropriate checklist arrays
@@ -127,9 +153,7 @@ $(document).ready(function() {
     event.preventDefault();
 
     // Get item from user input and store in variable
-    var newItem = $("#add-item")
-      .val()
-      .trim();
+    var newItem = $("#add-item").val().trim();
     // Remove spaces from input to store in id value
     var newItemId = newItem.replace(/\s/g, "");
     // Write to DOM
