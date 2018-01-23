@@ -74,6 +74,9 @@ $(document).ready(function() {
     $("#checklist").append(checkListItem);
     $("#add-item").empty();
 
+    // Save to local storage
+
+
     // Add code to save added items locally
 
     console.log(userChecklist);
