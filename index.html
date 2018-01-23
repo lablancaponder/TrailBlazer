@@ -33,28 +33,33 @@
 
         <div class="card">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="assets/images/camping.jpg">
+            <!-- <img class="activator" id="main-image" src="assets/images/camping.jpg"> -->
+            <img class="activator" id="main-image">
           </div>
           <div class="card-content">
-            <span h1 id="trail-name-cover" class="card-title activator grey-text text-darken-4">Trail Name
+            <span class="card-title activator grey-text text-darken-4" id="trail-name-cover">
               <i class="medium material-icons right">view_headline</i>
-            </span>
+              </span>
+
 
           </div>
 
           <div class="card-reveal">
-            <span h1 id="trail-name-interior" class="card-title grey-text text-darken-4">Trail Name
+            <span id="trail-name-interior" class="card-title grey-text text-darken-4">
               <i class="material-icons right">close</i>
             </span>
 
-            <p>Trail description - Lorem ipsum dolor amet trust fund celiac pinterest church-key polaroid messenger bag. Banh
-              mi jianbing microdosing 8-bit, distillery sriracha raw denim brunch affogato lyft green juice poutine waistcoat
-              echo park seitan.</p>
+            <p id="trail-description"></p>
+
+              <div id="trail-widget">
+                <!-- Insert trail widget i-frame here -->
+                <!-- BEGIN Hiking Project -->
+<iframe style="width:100%; max-width:1200px; height:410px;" frameborder="0" scrolling="no" src="https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=7000047&x=-12333477&y=5431238&z=6"></iframe>
+<!-- END Hiking Project -->
+              </div>
+
           </div>
         </div>
-
-
-
 
         <hr>
 
@@ -76,7 +81,8 @@
                 <div class="input-field inline">
                   <input placeholder="Additional Items" id="add-item" type="text" class="validate">
                   <label for="add-item"></label>
-                  <button class="btn-floating btn-large waves-effect" id="submit-item" type="submit" name="action" style="inline-block">+</button>
+                  <button class="btn-floating btn-small waves-effect" id="submit-item" type="submit" name="action" style="display: inline-block;">+</button>
+
                 </div>
                 <!-- <div class="card-action">
                   <a href="#">This is a link</a>
