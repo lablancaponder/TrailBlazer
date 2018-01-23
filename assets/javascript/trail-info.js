@@ -7,29 +7,6 @@ $(document).ready(function() {
     "Sunglasses"
   ];
 
-  // Checklist Arrays - Weather
-  var hotChecklist = ["Breathable layers", "Sunscreen", "Rain gear"];
-  var coldChecklist = ["Warm clothing", "Hat", "Gloves"];
-  var rainChecklist = ["Rain gear", "Towel"];
-
-  // Checklist Arrays - Activity
-  var bikingChecklist = [
-    "Bicycle",
-    "Spare tubes",
-    "Pump",
-    "Bike shoes",
-    "Socks"
-  ];
-  var hikingChecklist = ["Appropriate footwear", "Backpack", "Socks"];
-  var campingChecklist = [
-    "Tent",
-    "Sleeping bag",
-    "Sleeping pad",
-    "Camping chairs",
-    "Fire starter",
-    "Extra clothes"
-  ];
-
   // User-defined checklist Array
   var userChecklist = [];
 
