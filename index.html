@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Trail Details + Google Maps</title>
+  <title>TrailBlazer</title>
 
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -26,19 +26,19 @@
   <div id="cover"></div>
 
   <div class="col m12">
-    <div class="card" style="margin: 0 auto; width: 50vw; background:rgba(255,255,255, 0.80); border-radius: 10px">
+    <div class="card info-container" style="margin: 0 auto; background:rgba(255,255,255, 0.80); border-radius: 10px">
 
       <div class="card-content">
 
 
-        <div class="card">
+        <div class="card ">
           <div class="card-image waves-effect waves-block waves-light">
             <!-- <img class="activator" id="main-image" src="assets/images/camping.jpg"> -->
             <img class="activator" id="main-image">
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4" id="trail-name-cover">
-              <i class="medium material-icons right">view_headline</i>
+              <i class="small material-icons right">view_headline</i>
               </span>
 
 
@@ -56,7 +56,7 @@
               <div id="trail-widget">
                 <!-- Insert trail widget i-frame here -->
                 <!-- BEGIN Hiking Project -->
-                <iframe style="width:100%; max-width:1200px; height:410px;" frameborder="0" scrolling="no" src="https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=7000047&x=-12333477&y=5431238&z=6"></iframe>
+
                 <!-- END Hiking Project -->
               </div>
 
@@ -66,7 +66,7 @@
         <hr>
 
         <div class="row">
-          <div class="col s12 m6">
+          <div class="col s12 m12 l6">
             <div class="card">
               <div class="card-content">
 
@@ -120,22 +120,11 @@
           <button class="btn-floating btn-large waves-effect waves-light green" id="submit-item" type="submit" name="action" style="inline-block">+</button>
         </div>
       </div> -->
-          <div class="col s6">
-            <h1 id="weather">Weather</h1>
+          <div class="col s12 m12 l6" style="padding-top: 8px">
             <!-- Insert weather widget here -->
-            <a class="weatherwidget-io" href="https://forecast7.com/en/39d25n106d29/leadville/?unit=us" data-label_1="LEADVILLE, CO"
-              data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="original" data-baseColor="#3dc063" data-highColor="#ffe7e1"
-              data-lowColor="#dae9ff" data-sunColor="#ffd786" data-cloudColor="#e1f6ff" data-cloudFill="rgba(224, 243, 255, 0.45)">LEADVILLE, CO WEATHER</a>
+            <a class="weatherwidget-io" href="https://forecast7.com/en/39d74n104d99/denver/" data-label_1="DENVER" data-label_2="WEATHER" data-font="Roboto" data-icons="Climacons Animated" data-theme="mountains" >DENVER WEATHER</a>
             <script>
-              ! function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (!d.getElementById(id)) {
-                  js = d.createElement(s);
-                  js.id = id;
-                  js.src = "https://weatherwidget.io/js/widget.min.js";
-                  fjs.parentNode.insertBefore(js, fjs);
-                }
-              }(document, "script", "weatherwidget-io-js");
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://weatherwidget.io/js/widget.min.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","weatherwidget-io-js");
             </script>
           </div>
         </div>

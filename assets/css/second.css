@@ -64,6 +64,11 @@ h1 {
     position: absolute;
 }
 
+.info-container {
+    width: 50vw;
+    margin-top: 10px;
+}
+
 
 /* #cover:before {
   content: "";
@@ -73,3 +78,31 @@ h1 {
   background: rgb(5, 26, 50, 0.90);
 }
  */
+
+ h3 {
+     font-size: 18px;
+     font-weight: bold;
+ }
+
+ .card .card-content {
+     padding: 15px;
+ }
+
+ i.right {
+     margin-left: 0px;
+ }
+
+
+ @media screen and (max-width: 610px) {
+    .info-container {
+        width: 100vw;
+    }
+}
+
+ @media screen and (max-width: 610px) {
+    i.right {
+        margin-left: 0px;
+        margin-top: -5px; 
+    }
+}
+ 
