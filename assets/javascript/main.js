@@ -114,37 +114,43 @@ function displayTrailInfo(latitude, longitude, radius) {
             }
             $('.row-1').append(
                 '<div class="col s12 m6 l3 xl3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
-                + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title name">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
+                + '"data-id="' + response.trails[i].id + '"data-summary="' + response.trails[i].summary + '"data-imageUrl="' + response.trails[i].imgMedium + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title name">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
-                // Adds Data Attributes to HTML
-                $('.trail').data('Name', response.trails[i].name);
-                $('.trail').data('Trail Latitude', response.trails[i].latitude);
-                $('.trail').data('Trail Longitude', response.trails[i].longitude);
+                // // Adds Data Attributes to HTML
+                // $('.trail').data('Name', response.trails[i].name);
+                // $('.trail').data('Trail Latitude', response.trails[i].latitude);
+                // $('.trail').data('Trail Longitude', response.trails[i].longitude);
+                // $('.trail').data('Summary', response.trails[i].summary);
+                $('.trail').data('imageUrl', response.trails[i].imgMedium);
             }
 
             // Creates Second Row of Trails
             for (var i=4; i<8;i++) {
                 $('.row-2').append(
                 '<div class="col s12 m6 l3 xl3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
-                + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
+                + '"data-id="' + response.trails[i].id + '"data-summary="' + response.trails[i].summary + '"data-imageUrl="' + response.trails[i].imgMedium + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
-                $('.trail').data('Name', response.trails[i].name);
-                $('.trail').data('Trail Latitude', response.trails[i].latitude);
-                $('.trail').data('Trail Longitude', response.trails[i].longitude);
+                // $('.trail').data('Name', response.trails[i].name);
+                // $('.trail').data('Trail Latitude', response.trails[i].latitude);
+                // $('.trail').data('Trail Longitude', response.trails[i].longitude);
+                // $('.trail').data('Summary', response.trails[i].summary);
+                $('.trail').data('imageUrl', response.trails[i].imgMedium);
             }
 
             //Creates Third Row of Trails
             for (var i=8; i<12;i++) {
                 $('.row-3').append(
                 '<div class="col s12 m6 l3 lx3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
-                + '"data-id="' + response.trails[i].id + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
+                + '"data-id="' + response.trails[i].id + '"data-summary="' + response.trails[i].summary + '"data-imageUrl="' + response.trails[i].imgMedium + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
-                $('.trail').data('Name', response.trails[i].name);
-                $('.trail').data('Trail Latitude', response.trails[i].latitude);
-                $('.trail').data('Trail Longitude', response.trails[i].longitude);
+                // $('.trail').data('Name', response.trails[i].name);
+                // $('.trail').data('Trail Latitude', response.trails[i].latitude);
+                // $('.trail').data('Trail Longitude', response.trails[i].longitude);
+                // $('.trail').data('Summary', response.trails[i].summary);
+                $('.trail').data('imageUrl', response.trails[i].imgMedium);
             }
 
         }).error(function(error){
@@ -159,8 +165,12 @@ $(document).on('click', '.trail', function(event){
     console.log('Trail Longitude: ', trailLongitude);
     var trailName = $(this).data("name");
     console.log('Trail Name: ', trailName)
+    var trailSummary = $(this).data("summary");
+    console.log('Trail Summary: ', trailSummary)
     var trailLocation = $(this).data('location');
     console.log('Trail Location: ', trailLocation);
+    var trailImageUrl = $(this).data('imageUrl');
+    console.log('Image Url: ', trailImageUrl);
 
     var trailCityState = trailLocation.split(", ");
     console.log(trailCityState);
@@ -176,6 +186,18 @@ $(document).on('click', '.trail', function(event){
         trailCity: trailCity,
         trailState: trailState,
     })
+
+    localStorage.clear();
+
+    // Store all content into localStorage
+    localStorage.setItem("name", trailName);
+    localStorage.setItem("summary", trailSummary);
+    localStorage.setItem("location", trailLocation);
+    localStorage.setItem("longitude", trailLongitude);
+    localStorage.setItem("latitude", trailLatitude);
+    localStorage.setItem("imageUrl", trailImageUrl);
 });
+
+
 
 });

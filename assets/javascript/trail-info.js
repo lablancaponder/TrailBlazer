@@ -94,36 +94,48 @@ $(document).ready(function() {
   // );
 // END OLD FIREBASE CODE
 
+  // Testing writing trail details from local storage
+  $("#trail-name-cover").text(localStorage.getItem("name"));
+  $("#trail-name-interior").text(localStorage.getItem("name"));
+  $("#main-image").attr("src", localStorage.getItem("imageUrl"));
+  $("#trail-description").text(localStorage.getItem("summary"));
 
 
 
-  // AJAX call to get and write trail info upon clicking link from landing page
-  $(document).on("click", ".card-action", function(event){
-    // Get lat and lon data from selected trail data Attributes
-    var trailLatitude = $(this).attr("data-latitude");
-    console.log(trailLatitude);
-    var trailLongitude = $(this).attr("data-longitude");
-    console.log(trailLongitude);
-
-    // Hiking Project API Key
-    var apiKey = '200209309-2a8d10ade11cd96cedf39716cfa65127';
-
-    // Creates URL with Search Term for Trail API
-    var trailURL ='https://www.hikingproject.com/data/get-trails?lat=' + trailLatitude + '&lon=' + trailLongitude + '&sort=distance&maxResults=1&key=' + apiKey;
-
-    // AJAX Call from API
-    $.ajax({
-      url: trailURL,
-      method: "GET",
-      // When AJAX Call is "Done"
-    }).success(function(response) {
-      console.log(response);
-
-      var trailNameTitle = response.trails[0].name;
-      $("#trail-name-cover").text(trailNameTitle);
-      console.log(trailNameTitle);
-    });
-  });
+  // // AJAX call to get and write trail info upon clicking link from landing page
+  // $("#trail-info").on("click", ".trail", function(event){
+  //
+  //   // Get lat and lon data from selected trail data Attributes
+  //   var trailLatitude = $(this).attr("data-latitude");
+  //   console.log(trailLatitude);
+  //   var trailLongitude = $(this).attr("data-longitude");
+  //   console.log(trailLongitude);
+  //   var trailId = $(this).attr("data-id");
+  //   console.log(trailId);
+  //
+  //   // Testing trail widget
+  //   // var trailWidgetUrl = "https://www.hikingproject.com/widget?v=3&map=1&type=trail&id" + trailId + "&x=-12333477&y=5431238&z=6";
+  //   // $("#trail-widget").append("<iframe style='width:100%; max-width:1200px; height:410px;' frameborder='0' scrolling='no' src='" + trailWidgetUrl + "></iframe>");
+  //
+  //   // Hiking Project API Key
+  //   var apiKey = '200209309-2a8d10ade11cd96cedf39716cfa65127';
+  //
+  //   // Creates URL with Search Term for Trail API
+  //   var trailURL ='https://www.hikingproject.com/data/get-trails?lat=' + trailLatitude + '&lon=' + trailLongitude + '&sort=distance&maxResults=1&key=' + apiKey;
+  //
+  //   // AJAX Call from API
+  //   $.ajax({
+  //     url: trailURL,
+  //     method: "GET",
+  //     // When AJAX Call is "Done"
+  //   }).success(function(response) {
+  //     console.log(response);
+  //
+  //     var trailNameTitle = response.trails[0].name;
+  //     $("#trail-name-cover").text(trailNameTitle);
+  //     console.log(trailNameTitle);
+  //   });
+  // });
 
   // Check weather and activity (from Firebase) to display appropriate checklist arrays
 
