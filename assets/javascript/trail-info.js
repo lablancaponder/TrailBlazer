@@ -42,9 +42,10 @@ $(document).ready(function() {
   $("#main-image").attr("src", localStorage.getItem("imageUrl"));
   // $("#trail-description").text(localStorage.getItem("summary"));
   $("#trail-widget").html("<iframe style='width:100%; max-width:1200px; height:410px;' frameborder='0' scrolling='no' src=" + trailWidgetUrl + "></iframe>");
-  $("#condition-status").text(localStorage.getItem("conditionStatus"));
-  $("#condition-details").text(localStorage.getItem("conditionDetails"));
-  $("#condition-date").text(localStorage.getItem("conditionDate"));
+
+  if (localStorage.getItem("conditionDetails") != "") {
+    $("#trail-conditions").html("<h3>Reported Trail Conditions:</h3><p id='condition-status'><strong>Condition Status:</strong> " + localStorage.getItem('conditionStatus') + "</p><p id='condition-details'><strong>Condition Details:</strong> " + localStorage.getItem('conditionDetails') + "</p><p id='condition-date'><strong>Date Reported:</strong> " + localStorage.getItem('conditionDate') + "</p>");
+  }
 
 
   // Check weather and activity to display appropriate checklist arrays
