@@ -171,6 +171,8 @@ $(document).on('click', '.trail', function(event){
     console.log('Trail Location: ', trailLocation);
     var trailImageUrl = $(this).data('imageUrl');
     console.log('Image Url: ', trailImageUrl);
+    var trailId = $(this).data('id');
+    console.log('Trail ID: ', trailId);
 
     var trailCityState = trailLocation.split(", ");
     console.log(trailCityState);
@@ -196,6 +198,7 @@ $(document).on('click', '.trail', function(event){
     localStorage.setItem("longitude", trailLongitude);
     localStorage.setItem("latitude", trailLatitude);
     localStorage.setItem("imageUrl", trailImageUrl);
+    localStorage.setItem("id", trailId);
 });
 
 

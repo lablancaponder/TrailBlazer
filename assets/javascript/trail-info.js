@@ -33,109 +33,18 @@ $(document).ready(function() {
   // User-defined checklist Array
   var userChecklist = [];
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBEwnr_R2pjbyqaKWxKuSyQBtm3LbTdgS4",
-    authDomain: "trailblazer-project.firebaseapp.com",
-    databaseURL: "https://trailblazer-project.firebaseio.com",
-    projectId: "trailblazer-project",
-    storageBucket: "trailblazer-project.appspot.com",
-    messagingSenderId: "615321105967"
-  };
-
-// OLD FIREBASE CODE
-  // firebase.initializeApp(config);
-  //
-  // var dataRef = firebase.database();
-  //
-  // // Initial Values
-  // var city = "";
-  // var trailName = "";
-  // var trailDescription = "";
-  // var trailThumbnailUrl = "";
-  //
-  // // Firebase watcher + initial loader HINT: This code behaves similarly to .on("value")
-  // dataRef.ref("/trails/").on(
-  //   "value",
-  //   function(childSnapshot) {
-  //     // Log everything that's coming out of snapshot
-  //     console.log(childSnapshot.val().trailName);
-  //
-  //     // Write trail name to <h1> tag
-  //     $("#trail-name").text(childSnapshot.val().trailName);
-  //     $(".weatherwidget-io").attr(
-  //       "href",
-  //       "https://forecast7.com/en/39d25n106d29/" +
-  //         childSnapshot.val().trailCity +
-  //         "/?unit=us"
-  //     );
-  //     $(".weatherwidget-io").attr(
-  //       "data-label_1",
-  //       childSnapshot.val().trailCity + ", " + childSnapshot.val().trailState
-  //     );
-  //     $("#cityState").text(
-  //       childSnapshot.val().trailCity + ", " + childSnapshot.val().trailState
-  //     );
-  //     $(".locationName").text(
-  //       childSnapshot.val().trailCity + ", " + childSnapshot.val().trailState
-  //     );
-  //     $(".weatherInfo").attr(
-  //       "href",
-  //       "//forecast7.com/en/39d25n106d29/" +
-  //         childSnapshot.val().trailCity +
-  //         "/?unit=us"
-  //     );
-  //
-  //     // Handle the errors
-  //   },
-  //   function(errorObject) {
-  //     console.log("Errors handled: " + errorObject.code);
-  //   }
-  // );
-// END OLD FIREBASE CODE
+  var trailId = localStorage.getItem("id");
+  var trailWidgetUrl = "https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=" + trailId + "&x=-12333477&y=5431238&z=6"
 
   // Testing writing trail details from local storage
   $("#trail-name-cover").text(localStorage.getItem("name"));
   $("#trail-name-interior").text(localStorage.getItem("name"));
   $("#main-image").attr("src", localStorage.getItem("imageUrl"));
   $("#trail-description").text(localStorage.getItem("summary"));
+  $("#trail-widget").html("<iframe style='width:100%; max-width:1200px; height:410px;' frameborder='0' scrolling='no' src=" + trailWidgetUrl + "></iframe>")
 
 
 
-  // // AJAX call to get and write trail info upon clicking link from landing page
-  // $("#trail-info").on("click", ".trail", function(event){
-  //
-  //   // Get lat and lon data from selected trail data Attributes
-  //   var trailLatitude = $(this).attr("data-latitude");
-  //   console.log(trailLatitude);
-  //   var trailLongitude = $(this).attr("data-longitude");
-  //   console.log(trailLongitude);
-  //   var trailId = $(this).attr("data-id");
-  //   console.log(trailId);
-  //
-  //   // Testing trail widget
-  //   // var trailWidgetUrl = "https://www.hikingproject.com/widget?v=3&map=1&type=trail&id" + trailId + "&x=-12333477&y=5431238&z=6";
-  //   // $("#trail-widget").append("<iframe style='width:100%; max-width:1200px; height:410px;' frameborder='0' scrolling='no' src='" + trailWidgetUrl + "></iframe>");
-  //
-  //   // Hiking Project API Key
-  //   var apiKey = '200209309-2a8d10ade11cd96cedf39716cfa65127';
-  //
-  //   // Creates URL with Search Term for Trail API
-  //   var trailURL ='https://www.hikingproject.com/data/get-trails?lat=' + trailLatitude + '&lon=' + trailLongitude + '&sort=distance&maxResults=1&key=' + apiKey;
-  //
-  //   // AJAX Call from API
-  //   $.ajax({
-  //     url: trailURL,
-  //     method: "GET",
-  //     // When AJAX Call is "Done"
-  //   }).success(function(response) {
-  //     console.log(response);
-  //
-  //     var trailNameTitle = response.trails[0].name;
-  //     $("#trail-name-cover").text(trailNameTitle);
-  //     console.log(trailNameTitle);
-  //   });
-  // });
 
   // Check weather and activity (from Firebase) to display appropriate checklist arrays
 
