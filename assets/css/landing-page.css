@@ -6,7 +6,7 @@
 .ctr {
     position: absolute;
     top: 100px;
-    left: 16%;
+    left: 17%;
     width: 60%;
     z-index: 2;
 } 
@@ -29,14 +29,25 @@
       width: 35vw;
       background: rgba(255,255,255, 0.85);
       position: absolute;
-      top: 300px;
+      /* top: 300px; */
+      top: 35%;
       left: 32%;
   }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1200px) {
+    .form-container {
+        top: 225px;
+        width: 40vw;
+        left: 30%;
+    }
+}
+
+@media screen and (max-width: 1025px) {
     .form-container {
         width: 100vw;
         position: static;
     }
 }
+
+
 
