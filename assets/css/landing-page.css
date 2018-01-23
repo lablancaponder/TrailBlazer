@@ -1,14 +1,11 @@
 #cover {
     height: 70%;
-    /* position: relative; */
     margin: 0;
 }
 
-
-
 .ctr {
     position: absolute;
-    top: 130px;
+    top: 100px;
     left: 16%;
     width: 60%;
     z-index: 2;
@@ -30,20 +27,16 @@
 
   .form-container {
       width: 35vw;
-      /* height: 250px; */
       background: rgba(255,255,255, 0.85);
       position: absolute;
       top: 300px;
       left: 32%;
   }
 
-@media screen and (max-width: 1383px) {
+@media screen and (max-width: 1400px) {
     .form-container {
         width: 100vw;
         position: static;
-
     }
-
-
 }
 

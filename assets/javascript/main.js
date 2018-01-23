@@ -117,12 +117,10 @@ function displayTrailInfo(latitude, longitude, radius) {
                 + '"data-id="' + response.trails[i].id + '"data-summary="' + response.trails[i].summary + '"data-imageUrl="' + response.trails[i].imgMedium + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title name">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
-                // // Adds Data Attributes to HTML
-                // $('.trail').data('Name', response.trails[i].name);
-                // $('.trail').data('Trail Latitude', response.trails[i].latitude);
-                // $('.trail').data('Trail Longitude', response.trails[i].longitude);
-                // $('.trail').data('Summary', response.trails[i].summary);
                 $('.trail').data('imageUrl', response.trails[i].imgMedium);
+                $('.trail').data('conditionStatus', response.trails[i].conditionStatus);
+                $('.trail').data('conditionDetails', response.trails[i].conditionDetails);
+                $('.trail').data('conditionDate', response.trails[i].conditionDate);
             }
 
             // Creates Second Row of Trails
@@ -132,11 +130,10 @@ function displayTrailInfo(latitude, longitude, radius) {
                 + '"data-id="' + response.trails[i].id + '"data-summary="' + response.trails[i].summary + '"data-imageUrl="' + response.trails[i].imgMedium + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
-                // $('.trail').data('Name', response.trails[i].name);
-                // $('.trail').data('Trail Latitude', response.trails[i].latitude);
-                // $('.trail').data('Trail Longitude', response.trails[i].longitude);
-                // $('.trail').data('Summary', response.trails[i].summary);
                 $('.trail').data('imageUrl', response.trails[i].imgMedium);
+                $('.trail').data('conditionStatus', response.trails[i].conditionStatus);
+                $('.trail').data('conditionDetails', response.trails[i].conditionDetails);
+                $('.trail').data('conditionDate', response.trails[i].conditionDate);
             }
 
             //Creates Third Row of Trails
@@ -146,11 +143,10 @@ function displayTrailInfo(latitude, longitude, radius) {
                 + '"data-id="' + response.trails[i].id + '"data-summary="' + response.trails[i].summary + '"data-imageUrl="' + response.trails[i].imgMedium + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
-                // $('.trail').data('Name', response.trails[i].name);
-                // $('.trail').data('Trail Latitude', response.trails[i].latitude);
-                // $('.trail').data('Trail Longitude', response.trails[i].longitude);
-                // $('.trail').data('Summary', response.trails[i].summary);
                 $('.trail').data('imageUrl', response.trails[i].imgMedium);
+                $('.trail').data('conditionStatus', response.trails[i].conditionStatus);
+                $('.trail').data('conditionDetails', response.trails[i].conditionDetails);
+                $('.trail').data('conditionDate', response.trails[i].conditionDate);
             }
 
         }).error(function(error){
@@ -160,19 +156,16 @@ function displayTrailInfo(latitude, longitude, radius) {
 
 $(document).on('click', '.trail', function(event){
     var trailLatitude = $(this).data("latitude");
-    console.log('Trail Latitude: ', trailLatitude);
     var trailLongitude = $(this).data('longitude');
-    console.log('Trail Longitude: ', trailLongitude);
     var trailName = $(this).data("name");
-    console.log('Trail Name: ', trailName)
     var trailSummary = $(this).data("summary");
-    console.log('Trail Summary: ', trailSummary)
     var trailLocation = $(this).data('location');
-    console.log('Trail Location: ', trailLocation);
     var trailImageUrl = $(this).data('imageUrl');
-    console.log('Image Url: ', trailImageUrl);
     var trailId = $(this).data('id');
-    console.log('Trail ID: ', trailId);
+    var conditionStatus = $(this).data('conditionStatus');
+    var conditionDetails = $(this).data('conditionDetails');
+    var conditionDate = $(this).data('conditionDate');
+
 
     var trailCityState = trailLocation.split(", ");
     console.log(trailCityState);
@@ -199,6 +192,13 @@ $(document).on('click', '.trail', function(event){
     localStorage.setItem("latitude", trailLatitude);
     localStorage.setItem("imageUrl", trailImageUrl);
     localStorage.setItem("id", trailId);
+    localStorage.setItem("conditionStatus", conditionStatus);
+    localStorage.setItem("conditionDetails", conditionDetails);
+    localStorage.setItem("conditionDate", conditionDate);
+
+    // if (conditions != null) {
+    //
+    // }
 });
 
 
