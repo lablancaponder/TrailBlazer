@@ -37,13 +37,13 @@ $(document).ready(function() {
   var trailWidgetUrl = "https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=" + trailId + "&x=-12333477&y=5431238&z=6"
 
   // Testing writing trail details from local storage
-  $("#trail-name-cover").text(localStorage.getItem("name"));
-  $("#trail-name-interior").text(localStorage.getItem("name"));
+  $("#trail-name-cover").prepend(localStorage.getItem("name"));
+  $("#trail-name-interior").prepend(localStorage.getItem("name"));
   $("#main-image").attr("src", localStorage.getItem("imageUrl"));
   // $("#trail-description").text(localStorage.getItem("summary"));
   $("#trail-widget").html("<iframe style='width:100%; max-width:1200px; height:410px;' frameborder='0' scrolling='no' src=" + trailWidgetUrl + "></iframe>");
 
-  if (localStorage.getItem("conditionDetails") != "") {
+  if (localStorage.getItem("conditionStatus") !== "Unknown") {
     $("#trail-conditions").html("<h3>Reported Trail Conditions:</h3><p id='condition-status'><strong>Condition Status:</strong> " + localStorage.getItem('conditionStatus') + "</p><p id='condition-details'><strong>Condition Details:</strong> " + localStorage.getItem('conditionDetails') + "</p><p id='condition-date'><strong>Date Reported:</strong> " + localStorage.getItem('conditionDate') + "</p>");
   }
 
