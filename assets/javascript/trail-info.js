@@ -40,13 +40,14 @@ $(document).ready(function() {
   $("#trail-name-cover").text(localStorage.getItem("name"));
   $("#trail-name-interior").text(localStorage.getItem("name"));
   $("#main-image").attr("src", localStorage.getItem("imageUrl"));
-  $("#trail-description").text(localStorage.getItem("summary"));
-  $("#trail-widget").html("<iframe style='width:100%; max-width:1200px; height:410px;' frameborder='0' scrolling='no' src=" + trailWidgetUrl + "></iframe>")
+  // $("#trail-description").text(localStorage.getItem("summary"));
+  $("#trail-widget").html("<iframe style='width:100%; max-width:1200px; height:410px;' frameborder='0' scrolling='no' src=" + trailWidgetUrl + "></iframe>");
+  $("#condition-status").text(localStorage.getItem("conditionStatus"));
+  $("#condition-details").text(localStorage.getItem("conditionDetails"));
+  $("#condition-date").text(localStorage.getItem("conditionDate"));
 
 
-
-
-  // Check weather and activity (from Firebase) to display appropriate checklist arrays
+  // Check weather and activity to display appropriate checklist arrays
 
   // Write array to checklist area (Using universalChecklist for testing)
   for (var i = 0; i < universalChecklist.length; i++) {
