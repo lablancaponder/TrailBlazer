@@ -101,7 +101,6 @@ $(document).ready(function() {
     userChecklist.push(newItem);
     localStorage.setItem("userChecklist", JSON.stringify(userChecklist));
 
-
     // Remove spaces from input to store in id value
     var newItemId = newItem.replace(/\s/g, "");
     // // Write to DOM
