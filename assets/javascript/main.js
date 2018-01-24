@@ -196,9 +196,7 @@ $(document).on('click', '.trail', function(event){
     localStorage.setItem("conditionDetails", conditionDetails);
     localStorage.setItem("conditionDate", conditionDate);
 
-    // if (conditions != null) {
-    //
-    // }
+
 });
 
 

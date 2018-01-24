@@ -3,8 +3,10 @@ $(document).ready(function() {
   var universalChecklist = [
     "Water",
     "Extra food",
+    "Clothing layers",
     "First aid kit",
-    "Sunglasses"
+    "Sunglasses",
+    "Sunscreen"
   ];
 
   // User-defined checklist Array
@@ -24,10 +26,7 @@ $(document).ready(function() {
     $("#trail-conditions").html("<h3>Reported Trail Conditions:</h3><p id='condition-status'><strong>Condition Status:</strong> " + localStorage.getItem('conditionStatus') + "</p><p id='condition-details'><strong>Condition Details:</strong> " + localStorage.getItem('conditionDetails') + "</p><p id='condition-date'><strong>Date Reported:</strong> " + localStorage.getItem('conditionDate') + "</p><br>");
   }
 
-
-  // Check weather and activity to display appropriate checklist arrays
-
-  // Write array to checklist area (Using universalChecklist for testing)
+  // Write universalChecklist array to checklist area
   for (var i = 0; i < universalChecklist.length; i++) {
     // Remove spaces from item to store in id value
     var newItemId = universalChecklist[i].replace(/\s/g, "");
@@ -48,15 +47,51 @@ $(document).ready(function() {
     $("#checklist").append(checkListItem);
   }
 
-  // Add checklist item to list from user input - Should we use local storage here ?????
+  function writeUserChecklist() {
+    var localList = JSON.parse(localStorage.getItem("userChecklist"));
+
+    if (localList != []) {
+
+      for (var i = 0; i < localList.length; i++) {
+        // Remove spaces from item to store in id value
+        var newItemId = localList[i].replace(/\s/g, "");
+        // Write to DOM
+        var checkListItem = $("<p>");
+        var newInputItem = $("<input>");
+        newInputItem.attr("type", "checkbox");
+        newInputItem.addClass("checkbox");
+        newInputItem.attr("id", newItemId);
+
+        var labelTag = $("<label>");
+        labelTag.attr("for", newItemId);
+        labelTag.addClass("checklist-item");
+        labelTag.append(localList[i]);
+        checkListItem.append(newInputItem);
+        checkListItem.append(labelTag);
+
+        $("#checklist").append(checkListItem);
+      }
+    }
+  }
+
+  writeUserChecklist();
+
+  // Add checklist item to list from user input
   $("#submit-item").on("click", function(event) {
     event.preventDefault();
 
-    // Get item from user input and store in variable
+    // Get item from user input and store in variable - clear input
     var newItem = $("#add-item").val().trim();
+    $("#add-item").val("");
+
+    // Adding our new todo to our local list variable and adding it to local storage
+    userChecklist.push(newItem);
+    localStorage.setItem("userChecklist", JSON.stringify(userChecklist));
+
+
     // Remove spaces from input to store in id value
     var newItemId = newItem.replace(/\s/g, "");
-    // Write to DOM
+    // // Write to DOM
     var checkListItem = $("<p>");
     var newInputItem = $("<input>");
     newInputItem.attr("type", "checkbox");
@@ -70,15 +105,8 @@ $(document).ready(function() {
     checkListItem.append(newInputItem);
     checkListItem.append(labelTag);
 
-    userChecklist.push(newItem);
     $("#checklist").append(checkListItem);
-    $("#add-item").empty();
+    // writeUserChecklist();
 
-    // Save to local storage
-
-
-    // Add code to save added items locally
-
-    console.log(userChecklist);
   });
 });
