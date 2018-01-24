@@ -9,6 +9,15 @@ $(document).ready(function() {
     "Sunscreen"
   ];
 
+  // Create Variables for Weather Widget From Local Storage
+  var weatherLatitude = parseFloat(localStorage.getItem('cityLat')).toFixed(2).replace('.', 'd');
+  var weatherLongitude = parseFloat(localStorage.getItem('cityLong')).toFixed(2).replace('.', 'd').replace('-', 'n');
+  var weatherCity = localStorage.getItem('cityName').toLowerCase().replace(' ', '-');
+  var weatherCityUpper = weatherCity.toUpperCase().replace('-', ' ');
+
+  // Dynamically Updates Weather Widget in HTML
+  $('.weather-widget').html('<a class="weatherwidget-io" href="https://forecast7.com/en/' + weatherLatitude + weatherLongitude + '/' + weatherCity + '/" data-label_1="' + weatherCityUpper + '" data-label_2="WEATHER" data-font="Roboto" data-icons="Climacons Animated" data-theme="mountains">' + weatherCityUpper + ' WEATHER</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://weatherwidget.io/js/widget.min.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","weatherwidget-io-js");</script>')
+
   // User-defined checklist Array
   var userChecklist = [];
 

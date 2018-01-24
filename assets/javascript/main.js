@@ -77,6 +77,10 @@ $(('#submit-button')).on('click', function (event){
                 longitude: longitude,
                 latitude: latitude,
             })
+            localStorage.clear();
+            localStorage.setItem('cityLat', latitude);
+            localStorage.setItem('cityLong', longitude);
+            localStorage.setItem('cityName', city);
         displayTrailInfo(latitude, longitude, radius);
         })
     }
@@ -174,15 +178,7 @@ $(document).on('click', '.trail', function(event){
     trailCity.replace(' ', '+');
     var trailState = trailCityState[1];
 
-    database.ref('/trails').push({
-        trailName: trailName,
-        trailLatitude: trailLatitude,
-        trailLongitude: trailLongitude,
-        trailCity: trailCity,
-        trailState: trailState,
-    })
-
-    localStorage.clear();
+    
 
     // Store all content into localStorage
     localStorage.setItem("name", trailName);
@@ -195,6 +191,7 @@ $(document).on('click', '.trail', function(event){
     localStorage.setItem("conditionStatus", conditionStatus);
     localStorage.setItem("conditionDetails", conditionDetails);
     localStorage.setItem("conditionDate", conditionDate);
+
 
 
 });
