@@ -98,7 +98,9 @@ $(document).ready(function() {
     $("#add-item").val("");
 
     // Check for locally saved inputs, add new todo to our local list variable and adding it to local storage
-    userChecklist = JSON.parse(localStorage.getItem("userChecklist"));
+    if (JSON.parse(localStorage.getItem("userChecklist")) != null) {
+      userChecklist = JSON.parse(localStorage.getItem("userChecklist"));
+    }
     userChecklist.push(newItem);
     localStorage.setItem("userChecklist", JSON.stringify(userChecklist));
 
