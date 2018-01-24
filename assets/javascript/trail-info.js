@@ -50,7 +50,7 @@ $(document).ready(function() {
   function writeUserChecklist() {
     var localList = JSON.parse(localStorage.getItem("userChecklist"));
 
-    if (localList != []) {
+    if (localList != null) {
 
       for (var i = 0; i < localList.length; i++) {
         // Remove spaces from item to store in id value
