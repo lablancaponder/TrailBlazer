@@ -167,12 +167,13 @@ function initMap() {
 
   // Clicking the pin will open up an InfoWindow about the location
   google.maps.event.addListener(marker, "click", function() {
+
     infoWindow.open(map, marker);
-    // console.log("It appears");
   });
 
-  // There's an Exit button on the InfoWindow
+  // An Exit button on the InfoWindow
   google.maps.event.addListener(map, "click", function() {
+
     infoWindow.close();
   });
 
@@ -195,7 +196,3 @@ function initMap() {
     var iwCloseBtn = iwOuter.next();
   });
 }
-// initMap();
-
-
-
