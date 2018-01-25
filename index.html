@@ -23,11 +23,9 @@
 </head>
 
 <body>
-  <!-- <div id="cover"></div> -->
   <div class="cover-container">
-  <img class="responsive-img" src="assets/images/landing-page-cover-bw.png" style:"position: relative">
-<!-- <div class="row"> -->
-  <!-- <div class="col m12"> -->
+    <img class="responsive-img" src="assets/images/landing-page-cover-bw.png" style:"position: relative">
+
     <div class="card info-container">
 
       <div class="card-content">
@@ -35,13 +33,12 @@
 
         <div class="card ">
           <div class="card-image waves-effect waves-block waves-light">
-            <!-- <img class="activator" id="main-image" src="assets/images/camping.jpg"> -->
             <img class="activator" id="main-image">
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4" id="trail-name-cover">
               <i class="small material-icons right">view_headline</i>
-              </span>
+            </span>
           </div>
 
           <div class="card-reveal">
@@ -49,15 +46,11 @@
               <i class="material-icons right">close</i>
             </span>
 
-            <!-- <p id="trail-description"></p> -->
             <div id="trail-conditions">
             </div>
 
               <div id="trail-widget">
                 <!-- Insert trail widget i-frame here -->
-                <!-- BEGIN Hiking Project -->
-
-                <!-- END Hiking Project -->
               </div>
           </div>
         </div>
@@ -70,8 +63,8 @@
               <div class="card-content">
 
                 <h1>What to Bring</h1>
-                <!-- Dynamically insert checklist from javascript -->
                 <form action="#" id="checklist">
+                  <!-- Dynamically insert checklist from javascript -->
                   <!-- SAMPLE ITEM (for html structure)
                   <p>
                     <input type="checkbox" id="test1" class="checkbox" />
@@ -83,13 +76,7 @@
                   <input placeholder="Additional Items" id="add-item" type="text" class="validate">
                   <button class="btn-floating btn-small waves-effect" id="submit-item" type="submit" name="action">+</button>
                   <label for="add-item"></label>
-
-
                 </div>
-                <!-- <div class="card-action">
-                  <a href="#">This is a link</a>
-                  <a href="#">This is a link</a>
-                </div> -->
               </div>
             </div>
           </div>
@@ -97,18 +84,14 @@
 
           <div class="col s12 m12 l6 weather-widget" style="padding-top: 8px">
             <!-- Weather Widget Will Dynamically Appear Here Using City Info., If Not Placeholder Widget -->
-            <a class="weatherwidget-io" href="https://forecast7.com/en/39d55n105d78/colorado/" data-label_1="COLORADO" data-label_2="WEATHER" data-icons="Climacons Animated" data-theme="mountains" >COLORADO WEATHER</a>
-            <script>
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://weatherwidget.io/js/widget.min.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","weatherwidget-io-js");
-            </script>
-
           </div>
         </div>
+
+        <hr>
 
         <div class="card">
           <div class="card-content">
             <h1 id="googlemap">Map</h1>
-            <!-- </div> -->
             <div id="map">
               <!-- Insert Map here -->
             </div>
@@ -121,9 +104,7 @@
 
       </div>
     </div>
-  <!-- </div> -->
-<!-- </div> -->
-</div>
+  </div>
 
     <!-- JavaScript for index.html and Google Maps -->
     <script type="text/javascript" src="./assets/javascript/trail-info.js"></script>
@@ -139,15 +120,6 @@
     <!-- Custom Javascript -->
     <script type="text/javascript" src="assets/javascript/main.js"></script>
 
-    <!-- Date Picker Javascript -->
-    <!-- <script type="text/javascript" src="assets/javascript/picker.js"></script>
-    <script type="text/javascript" src="assets/javascript/picker.data.js"></script> -->
-
-    <!-- Slider Javascript -->
-    <!-- <script type="text/javascript" src="assets/javascript/nouislide.js"></script> -->
-
-    <!-- Moment.js -->
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </body>
 
 </html>
