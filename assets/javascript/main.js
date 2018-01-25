@@ -15,7 +15,6 @@ var database = firebase.database();
 
 
 // Document Loads Before Code Runs
-
 $(document).ready(function() {
     $('select').material_select('destroy');
     $('select').material_select();
@@ -77,10 +76,14 @@ $(('#submit-button')).on('click', function (event){
                 longitude: longitude,
                 latitude: latitude,
             })
+
+            // Save Data to Local Storage For Second Page Functions
             localStorage.clear();
             localStorage.setItem('cityLat', latitude);
             localStorage.setItem('cityLong', longitude);
             localStorage.setItem('cityName', city);
+
+        // Calls Trail Info Function
         displayTrailInfo(latitude, longitude, radius);
         })
     }
@@ -111,7 +114,7 @@ function displayTrailInfo(latitude, longitude, radius) {
 
 
 
-            // Creates First Row of Trails
+            // Creates First Row of Trails w/ Data Attributes
             for (var i=0; i<4;i++) {
             if (response.trails[i].imgSmallMed === "") {
                 response.trails[i].imgSmallMed = "assets/images/camping.jpg"
@@ -121,44 +124,51 @@ function displayTrailInfo(latitude, longitude, radius) {
                 + '"data-id="' + response.trails[i].id + '"data-summary="' + response.trails[i].summary + '"data-imageUrl="' + response.trails[i].imgMedium + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title name">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
+                // Saves Data to HTML Element
                 $('.trail').data('imageUrl', response.trails[i].imgMedium);
                 $('.trail').data('conditionStatus', response.trails[i].conditionStatus);
                 $('.trail').data('conditionDetails', response.trails[i].conditionDetails);
                 $('.trail').data('conditionDate', response.trails[i].conditionDate);
             }
 
-            // Creates Second Row of Trails
+            // Creates Second Row of Trails w/ Data Attributes
             for (var i=4; i<8;i++) {
                 $('.row-2').append(
                 '<div class="col s12 m6 l3 xl3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
                 + '"data-id="' + response.trails[i].id + '"data-summary="' + response.trails[i].summary + '"data-imageUrl="' + response.trails[i].imgMedium + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
+                // Saves Data to HTML Element
                 $('.trail').data('imageUrl', response.trails[i].imgMedium);
                 $('.trail').data('conditionStatus', response.trails[i].conditionStatus);
                 $('.trail').data('conditionDetails', response.trails[i].conditionDetails);
                 $('.trail').data('conditionDate', response.trails[i].conditionDate);
             }
 
-            //Creates Third Row of Trails
+            // Creates Third Row of Trails w/ Data Attributes
             for (var i=8; i<12;i++) {
                 $('.row-3').append(
                 '<div class="col s12 m6 l3 lx3"><div class="card trail" data-name="' + response.trails[i].name +'"data-location="' + response.trails[i].location + '"data-latitude="' + response.trails[i].latitude + '"data-longitude="' + response.trails[i].longitude
                 + '"data-id="' + response.trails[i].id + '"data-summary="' + response.trails[i].summary + '"data-imageUrl="' + response.trails[i].imgMedium + '"><div class="card-image"><img class="thumbnail" src="' + response.trails[i].imgSmallMed + '"><span class="card-title">' + response.trails[i].name + '</span></div><div class="card-content"><p>Summary: ' +response.trails[i].summary + '</p><br><p>Location: ' + response.trails[i].location + '</p><br><p>Length: ' + response.trails[i].length + ' Miles</p></div><div class="card-action"><a href="index.html">More Trail Info</a></div</div></div>'
                 )
 
+                // Saves Data to HTML Element
                 $('.trail').data('imageUrl', response.trails[i].imgMedium);
                 $('.trail').data('conditionStatus', response.trails[i].conditionStatus);
                 $('.trail').data('conditionDetails', response.trails[i].conditionDetails);
                 $('.trail').data('conditionDate', response.trails[i].conditionDate);
             }
 
+        // If AJAX Doesn't Work, Error is Logged to Console
         }).error(function(error){
             console.log('Error', error);
         })
 };
 
+// When a Trail is Clicked...
 $(document).on('click', '.trail', function(event){
+
+    // Takes Data from HTML Element, Saves It As Variable
     var trailLatitude = $(this).data("latitude");
     var trailLongitude = $(this).data('longitude');
     var trailName = $(this).data("name");
@@ -169,18 +179,12 @@ $(document).on('click', '.trail', function(event){
     var conditionStatus = $(this).data('conditionStatus');
     var conditionDetails = $(this).data('conditionDetails');
     var conditionDate = $(this).data('conditionDate');
-
-
     var trailCityState = trailLocation.split(", ");
-    console.log(trailCityState);
-
     var trailCity = trailCityState[0];
     trailCity.replace(' ', '+');
     var trailState = trailCityState[1];
 
-    
-
-    // Store all content into localStorage
+    // Stores Variables (Data) to Local Storage
     localStorage.setItem("name", trailName);
     localStorage.setItem("summary", trailSummary);
     localStorage.setItem("location", trailLocation);
@@ -191,11 +195,5 @@ $(document).on('click', '.trail', function(event){
     localStorage.setItem("conditionStatus", conditionStatus);
     localStorage.setItem("conditionDetails", conditionDetails);
     localStorage.setItem("conditionDate", conditionDate);
-
-
-
 });
-
-
-
 });
