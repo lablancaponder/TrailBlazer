@@ -1,5 +1,8 @@
+// Global variables
 var map;
 var infoWindow;
+
+// Retrieving local storage of Latitude and Longitude and changing the string to an integer using parseFloat
 var mapLongitude = parseFloat(localStorage.getItem("longitude"));
 var mapLatitude = parseFloat(localStorage.getItem("latitude"));
 
@@ -7,6 +10,7 @@ var mapLatitude = parseFloat(localStorage.getItem("latitude"));
 console.log(mapLatitude);
 console.log(mapLongitude);
 
+// Initialize Google Maps and creating a styled map
 function initMap() {
   var styledMapType = new google.maps.StyledMapType(
     [
@@ -125,23 +129,33 @@ function initMap() {
     { name: "Styled Map" }
   );
 
+  // Options for Maps
   var mapOptions = {
     zoom: 14,
     center: { lat: mapLatitude, lng: mapLongitude },
     mapTypeControlOptions: {
-      mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain', 'styled_map']
+      mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain", "styled_map"]
     }
   };
 
-  //Create a dynamtic map 
+  // Create a dynamtic map
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
-  
-  //Visual Map
-  map.mapTypes.set('styled_map', styledMapType);
-  map.setMapTypeId('styled_map');
+  console.log("Map: " + map);
 
-  //Creating a variable for infoWindow
-  var infoWindow = new google.maps.InfoWindow();
+  // Visual Map
+  map.mapTypes.set("styled_map", styledMapType);
+  map.setMapTypeId("styled_map");
+
+  // InfoWindow
+  var contentString =
+    '<div class="iw-content>' +
+    '<div class="iw-subTtile"><b><h4>Here is your trail</b></h4></div>' +
+    "</div>";
+
+  // Creating a variable for infoWindow
+  var infoWindow = new google.maps.InfoWindow({
+    content: contentString
+  });
 
   // Creating markers for local storage latitude and longitude
   var marker = new google.maps.Marker({
@@ -149,13 +163,36 @@ function initMap() {
     map: map,
     animation: google.maps.Animation.DROP
   });
-  // marker.addListener('click', toggleBounce);
-}
+  console.log(marker);
 
-// function toggleBounce() {
-//   if (marker.getAnimation() !== null) {
-//     marker.setAnimation(null);
-//   } else {
-//     marker.setAnimation(google.mapsAnimation.BOUNCE);
-//   }
-// }
+  // Clicking the pin will open up an InfoWindow about the location
+  google.maps.event.addListener(marker, "click", function() {
+    infoWindow.open(map, marker);
+    // console.log("It appears");
+  });
+
+  // There's an Exit button on the InfoWindow
+  google.maps.event.addListener(map, "click", function() {
+    infoWindow.close();
+  });
+
+  //Google maps event waits for the creation of infoWindow HTML structure 'dom-ready' and before opening the infoWindow defined styles are applied
+  google.maps.event.addListener(infoWindow, "domready", function() {
+    //Reference the DIV which receives the content of infoWindow
+    var iwOuter = $(".gm-style-iw");
+
+    // The DIV needed to be change is above the .gm-style.iw
+    var iwBackground = iwOuter.prev();
+
+    // Remove the background shadow DIV
+    iwBackground.children(":nth-child(2)").css({ background: "#ffffff" });
+
+    var iwmain = iwBackground.children(":nth-child(2)");
+
+    // Remove the white background DIV
+    iwBackground.children(":nth-child(4)").css({ display: "none" });
+
+    var iwCloseBtn = iwOuter.next();
+  });
+}
+// initMap();
