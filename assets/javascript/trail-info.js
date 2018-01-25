@@ -20,21 +20,22 @@ $(document).ready(function() {
   console.log(weatherCityUpper);
 
   // Dynamically Updates Weather Widget in HTML
-  $('.weather-widget').html('<a class="weatherwidget-io" href="https://forecast7.com/en/' + weatherLatitude + weatherLongitude + '/' + weatherCity + '/" data-label_1="' + weatherCityUpper + '" data-label_2="WEATHER" data-font="Roboto" data-icons="Climacons Animated" data-theme="mountains">' + weatherCityUpper + ' WEATHER</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://weatherwidget.io/js/widget.min.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","weatherwidget-io-js");</script>')
+  $('.weather-widget').html('<a class="weatherwidget-io" href="https://forecast7.com/en/' + weatherLatitude + weatherLongitude + '/' + weatherCity + '/?unit=us" data-label_1="' + weatherCityUpper + '" data-label_2="WEATHER" data-font="Roboto" data-icons="Climacons Animated" data-theme="mountains">' + weatherCityUpper + ' WEATHER</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://weatherwidget.io/js/widget.min.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","weatherwidget-io-js");</script>')
 
   // User-defined checklist Array
   var userChecklist = [];
 
+  // Get trail id from local storage to compose url for embedded trail widget
   var trailId = localStorage.getItem("id");
   var trailWidgetUrl = "https://www.hikingproject.com/widget?v=3&map=1&type=trail&id=" + trailId + "&x=-12333477&y=5431238&z=6"
 
-  // Testing writing trail details from local storage
+  // Write trail details from local storage
   $("#trail-name-cover").prepend(localStorage.getItem("name"));
   $("#trail-name-interior").prepend(localStorage.getItem("name"));
   $("#main-image").attr("src", localStorage.getItem("imageUrl"));
-  // $("#trail-description").text(localStorage.getItem("summary"));
   $("#trail-widget").html("<iframe style='width:100%; max-width:1200px; height:410px;' frameborder='0' scrolling='no' src=" + trailWidgetUrl + "></iframe>");
 
+  // Get trail conditions from local storage and write above embedded trail widget - only if conditions exist
   if (localStorage.getItem("conditionStatus") !== "Unknown") {
     $("#trail-conditions").html("<h3>Reported Trail Conditions:</h3><p id='condition-status'><strong>Condition Status:</strong> " + localStorage.getItem('conditionStatus') + "</p><p id='condition-details'><strong>Condition Details:</strong> " + localStorage.getItem('conditionDetails') + "</p><p id='condition-date'><strong>Date Reported:</strong> " + localStorage.getItem('conditionDate') + "</p><br>");
   }
@@ -121,7 +122,6 @@ $(document).ready(function() {
     checkListItem.append(labelTag);
 
     $("#checklist").append(checkListItem);
-    // writeUserChecklist();
 
   });
 });
