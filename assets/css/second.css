@@ -25,6 +25,11 @@ h1 {
     border-radius: 10px;
 }
 
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 
  i.right {
      margin-left: 0px;
