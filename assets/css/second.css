@@ -92,6 +92,19 @@ h1 {
      margin-left: 0px;
  }
 
+ #submit-item {
+   background-color: #1a66a5;
+ }
+
+ #add-item {
+   border-bottom: 1px solid #1a66a5;
+   box-shadow: 0 1px 0 0 #1a66a5;
+ }
+
+ [type="checkbox"]:checked+label:before {
+   border-right: 2px solid #1a66a5;
+   border-bottom: 2px solid #1a66a5;
+ }
 
  @media screen and (max-width: 610px) {
     .info-container {
@@ -102,7 +115,6 @@ h1 {
  @media screen and (max-width: 610px) {
     i.right {
         margin-left: 0px;
-        margin-top: -5px; 
+        margin-top: -5px;
     }
 }
- 
