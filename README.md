@@ -1,28 +1,33 @@
-Project 1
+#Project 1
 
-We’ve created a trail finder app that shows trails based on limited search criteria, whereby users can select a trail that matches their desired area, length, difficulty level, etc. In this application we used:
-
-  -AJAX call to Hiking Project API using lat/lon data from user input
-  -Used Materialized CSS Grid System
-  -Used local storage (Pull Data)
-    -Display embedded trail details widget from Hiking Project
-    -Display embedded weather widget from lat/lon data
-    -Data persistence to compile a checklist
-  -Google Maps API
+<h3>We’ve created a trail finder app that shows trails based on limited search criteria, whereby users can select a trail that matches their desired area, length, difficulty level, etc.</h3>
+<br>
+<h3> In this application we used:
+</h3>
+<br>
+<ul>
+  <li>AJAX call to Hiking Project API using lat/lon data from user input</li>
+  <li>Used Materialized CSS Grid System</li>
+  <li>Used local storage (Pull Data)</li>
+    <li>Display embedded trail details widget from Hiking Project</li>
+    <li>Display embedded weather widget from lat/lon data</li>
+    <li>Data persistence to compile a checklist</li>
+  <li>Google Maps API</li>
   
-We created this application to inspire our community of hikers, bikers and campers who seek out the love of an adventure. More features will be added to this application in the future:
-
-
---User-Saved Searches w/ email functionality (including saved checklist)... using Firebase
---Ability to revisit your saved lists and comment on the trail
---Add directions functionality and time to arrival from Google Maps
---Maybe even look into adding map markers for provisions (checklist items), using Google Places?
---Filters in search results
---Collect user photos/reviews with optional social media plugins to share
---Add other hikes nearby to trail details page
---Add nearby campsites using Camp America API
---Incorporate ride-share for users to connect and carpool to trailheads
-
+<h3>We created this application to inspire our community of hikers, bikers and campers who seek out the love of an adventure. More features will be added to this application in the future:
+</h3>
+<br>
+<ul>
+<li>User-Saved Searches w/ email functionality (including saved checklist)... using Firebase</li>
+<li>Ability to revisit your saved lists and comment on the trail</li>
+<li>Add directions functionality and time to arrival from Google Maps</li>
+<li>Maybe even look into adding map markers for provisions (checklist items), using Google Places?</li>
+<li>Filters in search results</li>
+<li>Collect user photos/reviews with optional social media plugins to share</li>
+<li>Add other hikes nearby to trail details page</li>
+<li>Add nearby campsites using Camp America API</li>
+<li>Incorporate ride-share for users to connect and carpool to trailheads</li>
+</ul>
 
 
 
