@@ -1,4 +1,4 @@
-#Project 1
+#TrailBlazer-App
 
 <h3>We’ve created a trail finder app that shows trails based on limited search criteria, whereby users can select a trail that matches their desired area, length, difficulty level, etc.</h3>
 <br>
@@ -9,9 +9,9 @@
   <li>AJAX call to Hiking Project API using lat/lon data from user input</li>
   <li>Used Materialized CSS Grid System</li>
   <li>Used local storage (Pull Data)</li>
-    <li>Display embedded trail details widget from Hiking Project</li>
-    <li>Display embedded weather widget from lat/lon data</li>
-    <li>Data persistence to compile a checklist</li>
+   <li>Display embedded trail details widget from Hiking Project</li>
+   <li>Display embedded weather widget from lat/lon data</li>
+   <li>Data persistence to compile a checklist</li>
   <li>Google Maps API</li>
   
 <h3>We created this application to inspire our community of hikers, bikers and campers who seek out the love of an adventure. More features will be added to this application in the future:
@@ -34,4 +34,4 @@
 
 
 
-Copyright @ 2017 by University of Denver Bootcamp written by Kelsi, Molly, Lablanca & Steven.
+#Copyright @ 2017 by University of Denver Bootcamp written by Kelsi, Molly, Lablanca & Steven.
