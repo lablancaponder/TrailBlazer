@@ -1,4 +1,4 @@
-#TrailBlazer-App
+#https://lablancaponder.github.io/TrailBlazer/
 
 <h3>We’ve created a trail finder app that shows trails based on limited search criteria, whereby users can select a trail that matches their desired area, length, difficulty level, etc.</h3>
 <br>
